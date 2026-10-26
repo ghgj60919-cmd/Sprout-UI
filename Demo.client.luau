@@ -1,0 +1,16 @@
+-- Put SproutUI ModuleScript in ReplicatedStorage; run this as a LocalScript
+-- in StarterPlayer > StarterPlayerScripts.
+local Players = game:GetService("Players")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local SproutUI = require(ReplicatedStorage:WaitForChild("SproutUI"))
+local gui = Players.LocalPlayer:WaitForChild("PlayerGui")
+local window = SproutUI.window(gui, { title = "SproutUI demo" })
+window:button("Say hello", function()
+ print("Hello from SproutUI!")
+end)
+window:toggle("Music", false, function(enabled)
+ print("Music preference:", enabled)
+end)
+window:button("Close", function()
+ window:destroy()
+end)
